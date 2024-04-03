@@ -1,12 +1,37 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
--- AstroCommunity: import any community modules here
--- We import this file in `lazy_setup.lua` before the `plugins/` folder.
--- This guarantees that the specs are processed before any user plugins.
-
----@type LazySpec
 return {
+  -- Add the community repository of plugin specifications
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.pack.lua" },
-  -- import/override with your plugins folder
+  -- example of imporing a plugin, comment out to use it or add your own
+  -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
+
+  -- { import = "astrocommunity.colorscheme.catppuccin" },
+    { import = "astrocommunity.terminal-integration.flatten-nvim" },
+    { import = "astrocommunity.utility.noice-nvim" },
+    { import = "astrocommunity.editing-support.comment-box-nvim" },
+    { import = "astrocommunity.motion.hop-nvim" },
+    {import = "astrocommunity.colorscheme.dracula-nvim"},
+    {import = "astrocommunity.markdown-and-latex.markdown-preview-nvim"},
+    {import = "astrocommunity.indent.mini-indentscope"},
+    {import = "astrocommunity.completion.copilot-lua"},
+    {import = "astrocommunity.pack.terraform"},
+    {import = "astrocommunity.pack.go"},
+
+  { 
+    "zbirenbaum/copilot.lua",
+    opts = {
+      suggestion = {
+        keymap = {
+          accept = "<tab>",
+          accept_word = false,
+          accept_line = false,
+          next = "<C-.>",
+          prev = "<C-,>",
+          dismiss = "<C/>",
+        },
+      },
+    },
+  },
+
+
+
 }
